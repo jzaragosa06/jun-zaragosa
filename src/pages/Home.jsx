@@ -7,11 +7,12 @@ import user from '../data/user';
 import Animated from '../components/Animated';
 import { FaMedium } from 'react-icons/fa6';
 import { FiArrowRight } from 'react-icons/fi';
+import Details from './Details';
 
 
 const Header = () => {
     const openResume = () => {
-        window.open("/portfolio-v1/resume.pdf", "_blank")
+        window.open("/resume2.pdf", "_blank")
     }
 
     return (
@@ -21,8 +22,7 @@ const Header = () => {
                 <span>{user.email}</span>
             </div>
             <div className="flex items-center space-x-6">
-                <Link to="/works">Works</Link>
-                <p onClick={openResume} className="hover:underline">Resume</p>
+                <p onClick={openResume} className="hover:underline hover:cursor-pointer">Resume</p>
                 <FiSettings />
             </div>
         </div>
@@ -38,18 +38,28 @@ const SocialIcons = () => (
     </div>
 );
 
+
 const InfoSection = () => (
     <div className="flex items-start space-x-10 p-10">
         <SocialIcons />
-        {/* two containers should be in the same row */}
+
+        {/* Two containers should be in the same row */}
         <div className="flex w-full gap-6">
+
             {/* User container */}
-            <div className="w-1/2">
-                <div className="bg-black text-white px-2 py-1 rounded mb-3 w-max text-xs">It's me</div>
+            <div className="w-full md:w-1/2">
+                <div className="bg-black text-white px-2 py-1 rounded mb-3 w-max text-xs">
+                    It's me
+                </div>
+
                 <h1 className="text-4xl font-bold text-gray-800 leading-tight">
                     {user.firstNameShort} <br /> {user.lastName}
                 </h1>
-                <h2 className="text-sm mt-2 text-gray-600 font-semibold">{user.title}</h2>
+
+                <h2 className="text-sm mt-2 text-gray-600 font-semibold">
+                    {user.title}
+                </h2>
+
                 <p className="mt-4 max-w-md text-sm text-gray-600">
                     {user.about}
                 </p>
@@ -64,20 +74,10 @@ const InfoSection = () => (
                         </div>
                     ))}
                 </div>
-
-                <Link to="/works">
-                    <div className="flex justify-center items-center mt-6 animate-bounce">
-                        <div className="flex items-center gap-2 border border-black rounded-2xl px-4 py-2 text-black font-medium text-sm transition-all duration-300 hover:text-white hover:bg-black">
-                            Explore
-                            <FiArrowRight className="text-base" />
-                        </div>
-                    </div>
-                </Link>
-
             </div>
 
             {/* Animated container */}
-            <div className="w-1/2">
+            <div className="hidden md:block w-1/2">
                 <Animated />
             </div>
         </div>
@@ -88,9 +88,14 @@ const InfoSection = () => (
 export default function Home() {
     return (
         <div className="h-screen bg-gray-50 flex justify-center items-start pt-10">
-            <div className="bg-white rounded-lg shadow-md w-full max-w-6xl">
-                <Header />
-                <InfoSection />
+            <div>
+                <div className="bg-white  w-full max-w-6xl rounded-lg">
+                    <Header />
+                    <InfoSection />
+                </div>
+                <div className=' bg-white w-full max-w-6xl mt-7 rounded-lg'>
+                    <Details />
+                </div>
             </div>
         </div>
     );

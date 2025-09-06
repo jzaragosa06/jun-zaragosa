@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaAward, FaCertificate, FaGithub, FaLink, FaTimes } from 'react-icons/fa';
+import { FaAward, FaLink, FaTimes } from 'react-icons/fa';
 
 function CertificateDetail({ certificate }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -8,63 +8,68 @@ function CertificateDetail({ certificate }) {
     const closeModal = () => setIsModalOpen(false);
 
     return (
-        <div className="max-w-6xl mx-auto p-6 md:p-8">
-            {/* Main Content Row */}
-            <div className='flex flex-col md:flex-row gap-8'>
-                {/* Left Content - Project Info */}
-                <div className='md:w-2/3'>
-                    <h1 className="text-3xl font-bold text-gray-800 mb-2">{certificate.title}</h1>
-                    <p className="text-gray-600 text-lg mb-6">{certificate.subtitle}</p>
+        <div className="max-w-full">
+            {/* Header Section */}
+            <div className="mb-8 pb-6 border-b border-gray-100">
+                <h1 className="text-2xl font-light text-gray-900 mb-2">{certificate.title}</h1>
+                <p className="text-lg text-gray-600 mb-4 font-light">{certificate.subtitle}</p>
 
-                    <div
-                        className="prose text-gray-700 mb-8 space-y-4"
-                        dangerouslySetInnerHTML={{ __html: certificate.fullDescription }}
-                    ></div>
+                <div
+                    className="text-gray-700 leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: certificate.fullDescription }}
+                ></div>
+            </div>
 
-
-                    <div className="flex gap-4 mb-8">
+            {/* Main Content Grid */}
+            <div className='flex flex-col lg:flex-row gap-12'>
+                {/* Left Column - Main Content */}
+                <div className='lg:w-2/3'>
+                    {/* Certificate Link Section */}
+                    <div className="mb-8">
+                        <h3 className="text-lg font-medium text-gray-900 mb-4">Certificate Source</h3>
                         <a
                             href={certificate.source}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-gray-700 hover:text-black transition-colors"
+                            className="flex items-center gap-2 px-4 py-2 border border-black text-black hover:bg-black hover:text-white transition-colors duration-150 text-sm w-fit"
                         >
-                            <FaLink />
-                            <FaAward className="text-xl" />
-                            <span>Visit source</span>
+                            <FaAward className="text-sm" />
+                            <span>View Certificate</span>
                         </a>
                     </div>
                 </div>
 
-                {/* Right Content - Tags*/}
-                <div className="md:w-1/3">
-                    <div>
-                        <h3 className="text-lg font-semibold text-gray-800">Skills</h3>
-                        <div className="flex flex-wrap gap-2">
-                            {certificate.tags.map((tag, idx) => (
-                                <span
-                                    key={idx}
-                                    className="inline-block px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors"
-                                >
-                                    {tag}
-                                </span>
-                            ))}
+                {/* Right Column - Sidebar */}
+                <div className="lg:w-1/3">
+                    <div className="lg:sticky lg:top-4 space-y-8">
+                        {/* Skills Section */}
+                        <div>
+                            <h3 className="text-base font-medium text-gray-900 mb-4">Skills</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {certificate.tags.map((tag, idx) => (
+                                    <span
+                                        key={idx}
+                                        className="inline-block px-3 py-1 border border-gray-200 text-gray-700 text-xs hover:border-gray-300 hover:bg-gray-50 transition-colors duration-150"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Project Image */}
-                    <div 
-                        className="bg-white rounded-lg shadow-sm border border-gray-100 mt-3 cursor-pointer hover:shadow-md transition-shadow"
-                        onClick={openModal}
-                    >
-                        <img
-                            src={certificate.image}
-                            alt={`Screenshot of ${certificate.title}`}
-                            className="w-full h-auto object-contain rounded-md border border-gray-200"
-                        />
-                        <p className="text-xs text-gray-500 mt-2 text-center">
-                            Screenshot of {certificate.title}
-                        </p>
+                        {/* Certificate Image */}
+                        <div className="border border-gray-200 overflow-hidden cursor-pointer hover:border-gray-300 transition-colors duration-150" onClick={openModal}>
+                            <img
+                                src={certificate.image}
+                                alt={`Certificate of ${certificate.title}`}
+                                className="w-full h-auto object-contain"
+                            />
+                            <div className="p-3 bg-gray-50 border-t border-gray-100">
+                                <p className="text-xs text-gray-600 text-center">
+                                    Click to view full size
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,44 +77,46 @@ function CertificateDetail({ certificate }) {
             {/* Image Modal */}
             {isModalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-                    {/* Semi-transparent overlay */}
-                    <div 
-                        className="absolute inset-0 bg-black opacity-70"
+                    {/* Overlay */}
+                    <div
+                        className="absolute inset-0 bg-black bg-opacity-70"
                         onClick={closeModal}
                     ></div>
-                    
+
                     {/* Modal content */}
-                    <div className="relative z-50 bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col md:flex-row">
+                    <div className="relative z-50 bg-white max-w-5xl w-full max-h-[90vh] overflow-hidden flex flex-col lg:flex-row">
                         {/* Close button */}
                         <button
                             onClick={closeModal}
-                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none z-50"
+                            className="absolute top-4 right-4 text-gray-500 hover:text-black focus:outline-none z-50 p-2"
                         >
-                            <FaTimes className="text-2xl" />
+                            <FaTimes className="text-lg" />
                         </button>
-                        
-                        {/* Image on the left */}
-                        <div className="md:w-2/3 p-2 flex items-center justify-center bg-gray-100">
+
+                        {/* Image section */}
+                        <div className="lg:w-2/3 p-4 flex items-center justify-center bg-gray-50">
                             <img
                                 src={certificate.image}
-                                alt={`Screenshot of ${certificate.title}`}
-                                className="max-h-[80vh] w-auto object-contain rounded-md"
+                                alt={`Certificate of ${certificate.title}`}
+                                className="max-h-[80vh] w-auto object-contain"
                             />
                         </div>
-                        
-                        {/* Description on the right */}
-                        <div className="md:w-1/3 p-6 overflow-y-auto">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">{certificate.title}</h2>
-                            <div className="prose text-gray-700">
-                                {certificate.fullDescription}
-                            </div>
-                            <div className="mt-6">
-                                <h3 className="text-lg font-semibold text-gray-800 mb-2">Technologies Used</h3>
+
+                        {/* Description section */}
+                        <div className="lg:w-1/3 p-6 overflow-y-auto border-l border-gray-100">
+                            <h2 className="text-xl font-medium text-gray-900 mb-4">{certificate.title}</h2>
+                            <div
+                                className="text-gray-700 text-sm leading-relaxed mb-6"
+                                dangerouslySetInnerHTML={{ __html: certificate.fullDescription }}
+                            ></div>
+
+                            <div>
+                                <h3 className="text-base font-medium text-gray-900 mb-3">Skills</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {certificate.tags.map((tag, idx) => (
                                         <span
                                             key={idx}
-                                            className="inline-block px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm font-medium"
+                                            className="inline-block px-3 py-1 border border-gray-200 text-gray-700 text-xs"
                                         >
                                             {tag}
                                         </span>

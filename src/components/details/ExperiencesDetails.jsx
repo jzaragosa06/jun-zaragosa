@@ -1,70 +1,70 @@
 import React from 'react';
-import { FaGithub, FaLink, FaCalendarAlt, FaCircle } from 'react-icons/fa';
+import { FaGithub, FaLink, FaCalendarAlt } from 'react-icons/fa';
 
 function ExperienceDetail({ experience }) {
     return (
-        <div className="max-w-6xl mx-auto">
-            {/* Main Content Row */}
-            <div className='flex flex-col md:flex-row gap-8'>
-                <div className='md:w-2/3'>
-                    <div className="mb-6">
-                        <h1 className="text-3xl font-bold text-gray-800 mb-1">{experience.title}</h1>
-                        <h2 className="text-xl text-gray-600 mb-2">{experience.subtitle}</h2>
+        <div className="max-w-full">
+            {/* Header Section */}
+            <div className="mb-8 pb-6 border-b border-gray-100">
+                <h1 className="text-2xl font-light text-gray-900 mb-2">{experience.title}</h1>
+                <h2 className="text-lg text-gray-600 mb-3 font-light">{experience.subtitle}</h2>
 
-                        <div className="flex items-center text-gray-500 mb-4">
-                            <FaCalendarAlt className="mr-2" />
-                            <span>{experience.startDate} - {experience.endDate}</span>
-                        </div>
+                <div className="flex items-center text-sm text-gray-500 mb-4">
+                    <FaCalendarAlt className="mr-2 text-xs" />
+                    <span>{experience.startDate} - {experience.endDate}</span>
+                </div>
 
-                        <div className="prose text-gray-700 mb-6">
-                            <p>{experience.fullDescription}</p>
-                        </div>
-                    </div>
+                <p className="text-gray-700 leading-relaxed">{experience.fullDescription}</p>
+            </div>
 
+            {/* Main Content Grid */}
+            <div className='flex flex-col lg:flex-row gap-12'>
+                {/* Left Column - Main Content */}
+                <div className='lg:w-2/3'>
                     {/* Responsibilities Section */}
-                    <div className="mb-8">
-                        <h3 className="text-xl font-semibold text-gray-800 mb-4">Key Responsibilities</h3>
-                        <ul className="space-y-4 relative pl-6 border-l-2 border-gray-200">
+                    <div className="mb-10">
+                        <h3 className="text-lg font-medium text-gray-900 mb-6">Key Responsibilities</h3>
+                        <div className="space-y-4">
                             {experience.responsibilities.map((item, idx) => (
-                                <li key={idx} className="relative">
-                                    <div className="absolute -left-7 top-1.5 w-3 h-3 rounded-full bg-blue-500 border-4 border-blue-100"></div>
-                                    <p className="text-gray-700">{item}</p>
-                                </li>
+                                <div key={idx} className="flex items-start gap-3">
+                                    <div className="w-1 h-1 rounded-full bg-gray-400 mt-2.5 flex-shrink-0"></div>
+                                    <p className="text-gray-700 leading-relaxed text-sm">{item}</p>
+                                </div>
                             ))}
-                        </ul>
+                        </div>
                     </div>
 
                     {/* Achievements Section */}
-                    <div className="mb-8">
-                        <h3 className="text-xl font-semibold text-gray-800 mb-4">Notable Achievements</h3>
-                        <ul className="space-y-4 relative pl-6 border-l-2 border-gray-200">
+                    <div className="mb-10">
+                        <h3 className="text-lg font-medium text-gray-900 mb-6">Notable Achievements</h3>
+                        <div className="space-y-4">
                             {experience.achievements.map((item, idx) => (
-                                <li key={idx} className="relative">
-                                    <div className="absolute -left-7 top-1.5 w-3 h-3 rounded-full bg-green-500 border-4 border-green-100"></div>
-                                    <p className="text-gray-700">{item}</p>
-                                </li>
+                                <div key={idx} className="flex items-start gap-3">
+                                    <div className="w-1 h-1 rounded-full bg-black mt-2.5 flex-shrink-0"></div>
+                                    <p className="text-gray-700 leading-relaxed text-sm">{item}</p>
+                                </div>
                             ))}
-                        </ul>
+                        </div>
                     </div>
 
                     {/* Projects Section */}
                     {experience.projects && experience.projects.length > 0 && (
-                        <div className="mb-8">
-                            <h3 className="text-xl font-semibold text-gray-800 mb-4">Projects</h3>
+                        <div className="mb-10">
+                            <h3 className="text-lg font-medium text-gray-900 mb-6">Projects</h3>
                             <div className="space-y-6">
                                 {experience.projects.map((project, idx) => (
-                                    <div key={idx} className="bg-gray-50 p-4 rounded-lg">
-                                        <h4 className="font-medium text-gray-800 mb-1">{project.title}</h4>
-                                        <p className="text-gray-600 mb-3">{project.description}</p>
-                                        <div className="flex gap-4">
+                                    <div key={idx} className="border-l-2 border-gray-100 pl-6 pb-6">
+                                        <h4 className="font-medium text-gray-900 mb-2">{project.title}</h4>
+                                        <p className="text-gray-600 mb-4 text-sm leading-relaxed">{project.description}</p>
+                                        <div className="flex gap-6">
                                             {project.repository && (
                                                 <a
                                                     href={project.repository}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="flex items-center gap-2 text-sm text-gray-700 hover:text-black transition-colors"
+                                                    className="flex items-center gap-2 text-xs text-gray-600 hover:text-black transition-colors duration-150"
                                                 >
-                                                    <FaGithub className="text-lg" />
+                                                    <FaGithub className="text-sm" />
                                                     <span>View Code</span>
                                                 </a>
                                             )}
@@ -73,9 +73,9 @@ function ExperienceDetail({ experience }) {
                                                     href={project.source}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="flex items-center gap-2 text-sm text-gray-700 hover:text-black transition-colors"
+                                                    className="flex items-center gap-2 text-xs text-gray-600 hover:text-black transition-colors duration-150"
                                                 >
-                                                    <FaLink className="text-lg" />
+                                                    <FaLink className="text-sm" />
                                                     <span>Live Demo</span>
                                                 </a>
                                             )}
@@ -87,35 +87,39 @@ function ExperienceDetail({ experience }) {
                     )}
                 </div>
 
-                {/* Right Sidebar */}
-                <div className="md:w-1/3 space-y-8">
-                    {/* Company Info */}
-                    <div className="bg-gray-50 p-6 rounded-lg">
-                        <div className="flex flex-col items-center space-y-3">
-                            <img
-                                src={experience.image}
-                                alt={`Logo of ${experience.company}`}
-                                className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-sm"
-                            />
-                            <h3 className="text-lg font-medium text-gray-800 text-center">
-                                {experience.company}
-                            </h3>
-                            <p className='text-sm text-gray-500'>{experience.companyInfo}</p>
+                {/* Right Column - Sidebar */}
+                <div className="lg:w-1/3">
+                    <div className="lg:sticky lg:top-4 space-y-8">
+                        {/* Company Info */}
+                        <div className="border border-gray-100 p-6">
+                            <div className="flex flex-col items-center text-center space-y-4">
+                                <img
+                                    src={experience.image}
+                                    alt={`Logo of ${experience.company}`}
+                                    className="w-16 h-16 rounded-full object-cover border border-gray-200"
+                                />
+                                <div>
+                                    <h3 className="text-base font-medium text-gray-900 mb-1">
+                                        {experience.company}
+                                    </h3>
+                                    <p className='text-xs text-gray-500 leading-relaxed'>{experience.companyInfo}</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Skills Section */}
-                    <div className='flex flex-col items-center'>
-                        <h3 className="text-lg font-semibold text-gray-800 mb-3">Skills & Technologies</h3>
-                        <div className="flex flex-wrap gap-2">
-                            {experience.tags.map((tag, idx) => (
-                                <span
-                                    key={idx}
-                                    className="inline-block px-3 py-1.5 bg-gray-100 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors"
-                                >
-                                    {tag}
-                                </span>
-                            ))}
+                        {/* Skills Section */}
+                        <div>
+                            <h3 className="text-base font-medium text-gray-900 mb-4">Skills & Technologies</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {experience.tags.map((tag, idx) => (
+                                    <span
+                                        key={idx}
+                                        className="inline-block px-3 py-1 border border-gray-200 text-gray-700 text-xs hover:border-gray-300 hover:bg-gray-50 transition-colors duration-150"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

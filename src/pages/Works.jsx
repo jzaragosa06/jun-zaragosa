@@ -10,32 +10,25 @@ import ExperienceDetail from "../components/details/ExperiencesDetails";
 import { FaBackward } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Works = () =>
-{
+const Works = () => {
     const [selectedSection, setSelectedSection] = useState('projects');
     const [selectedItemId, setSelectedItemId] = useState(projects[0].id);
 
-    const handleNavigation = (section) =>
-    {
+    const handleNavigation = (section) => {
         setSelectedSection(section);
         // Reset to first item when changing sections
-        if (section === 'projects')
-        {
+        if (section === 'projects') {
             setSelectedItemId(projects[0].id);
-        } else if (section === 'experiences')
-        {
+        } else if (section === 'experiences') {
             setSelectedItemId(experiences[0]?.id || '');
-        } else if (section === 'articles')
-        {
+        } else if (section === 'articles') {
             setSelectedItemId(articles[0]?.id || '');
-        } else if (section === 'certifications')
-        {
+        } else if (section === 'certifications') {
             setSelectedItemId(certificates[0]?.id || '');
         }
     };
 
-    const handleItemSelected = (itemId) =>
-    {
+    const handleItemSelected = (itemId) => {
         setSelectedItemId(itemId);
     };
 
