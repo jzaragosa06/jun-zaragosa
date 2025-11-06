@@ -1,6 +1,18 @@
 
 const certificates = [
     {
+        id: "001",
+        title: "AWS Cloud Quest: Cloud Practioner",
+        subtitle: "Issued by Amazon Web Service (AWS)",
+        description: "",
+        image: '/backend.png',
+        tags: ['AWS', 'Cloud Computing', 'EC2', 'S3', 'Scalling'],
+        fullDescription: `Earners of this badge have demonstrated basic solution building knowledge using
+        AWS services and have a fundamental understanding of AWS Cloud concepts.
+        Badge earners have acquired hands-on experience with compute, networking, database and security services. `,
+        source: "https://www.credly.com/badges/f6586a0d-5cf8-46e7-af3c-3e6c3812828e",
+    },
+    {
         id: "1",
         title: "Back End Development and APIs",
         subtitle: "Issued by FreeCodeCamp",
@@ -33,7 +45,7 @@ const certificates = [
         subtitle: "Issued by DeepLearning.AI: Supervised Machine Learning - Regression and Classification",
         description: "",
         image: 'ml.jpeg',
-        tags: ['Machine Learning', 'Regression Analysis', 'Classification and Regression Tree (CART)',  'Pandas', 'Python', 'Numpy', 'Scikit-learn', 'Statistical Modeling'],
+        tags: ['Machine Learning', 'Regression Analysis', 'Classification and Regression Tree (CART)', 'Pandas', 'Python', 'Numpy', 'Scikit-learn', 'Statistical Modeling'],
         fullDescription: `This course provides me practical introduction to supervised machine learning techniques 
         for regression and classification tasks using Python. I’ve learned to build and evaluate predictive models
          using popular libraries such as NumPy and scikit-learn. Key concepts include linear regression, logistic regression, 

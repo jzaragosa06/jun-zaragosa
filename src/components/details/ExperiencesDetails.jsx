@@ -48,7 +48,7 @@ function ExperienceDetail({ experience }) {
                     </div>
 
                     {/* Projects Section */}
-                    {experience.projects && experience.projects.length > 0 && (
+                    {/* {experience.projects && experience.projects.length > 0 && (
                         <div className="mb-10">
                             <h3 className="text-lg font-medium text-gray-900 mb-6">Projects</h3>
                             <div className="space-y-6">
@@ -84,7 +84,7 @@ function ExperienceDetail({ experience }) {
                                 ))}
                             </div>
                         </div>
-                    )}
+                    )} */}
                 </div>
 
                 {/* Right Column - Sidebar */}
