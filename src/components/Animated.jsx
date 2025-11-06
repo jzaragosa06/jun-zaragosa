@@ -38,8 +38,7 @@ const contentItems = [
     }
 ];
 
-const ContentItem = ({ item }) =>
-{
+const ContentItem = ({ item }) => {
     return (
         <motion.div
             className="flex items-center justify-center h-full bg-white"
@@ -61,14 +60,11 @@ const ContentItem = ({ item }) =>
     );
 };
 
-function AnimatedGallery()
-{
+function AnimatedGallery() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    useEffect(() =>
-    {
-        const interval = setInterval(() =>
-        {
+    useEffect(() => {
+        const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % contentItems.length);
         }, 3000); // Rotate every 3 seconds
 
