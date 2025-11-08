@@ -11,14 +11,30 @@ function CertificateDetail({ certificate }) {
         <div className="max-w-full">
             {/* Header Section */}
             <div className="mb-8 pb-6 border-b border-gray-100">
-                <h1 className="text-2xl font-light text-gray-900 mb-2">{certificate.title}</h1>
-                <p className="text-lg text-gray-600 mb-4 font-light">{certificate.subtitle}</p>
+                {/* Title */}
+                <h1 className="text-2xl font-light text-gray-900 mb-2">
+                    {certificate.title}
+                </h1>
 
+                {/* Issuer Info */}
+                <div className="flex items-center gap-3 mb-4">
+                    <img
+                        src={certificate.issuer_img}
+                        alt="Issuer logo"
+                        className="w-9 h-9 rounded-full object-cover shadow-sm border border-gray-200"
+                    />
+                    <p className="text-lg text-gray-600 font-light">
+                        {certificate.subtitle}
+                    </p>
+                </div>
+
+                {/* Description */}
                 <div
                     className="text-gray-700 leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: certificate.fullDescription }}
                 ></div>
             </div>
+
 
             {/* Main Content Grid */}
             <div className='flex flex-col lg:flex-row gap-12'>

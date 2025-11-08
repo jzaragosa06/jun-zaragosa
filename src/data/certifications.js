@@ -11,6 +11,7 @@ const certificates = [
         AWS services and have a fundamental understanding of AWS Cloud concepts.
         Badge earners have acquired hands-on experience with compute, networking, database and security services. `,
         source: "https://www.credly.com/badges/f6586a0d-5cf8-46e7-af3c-3e6c3812828e",
+        issuer_img: "/issuer/aws.png"
     },
     {
         id: "1",
@@ -23,6 +24,7 @@ const certificates = [
         I've learned to wirte backend apps with Node.js and npm. I've also built web application with the Express framework, 
         built microservices that uses MongoDB and Mongoose library. `,
         source: "https://www.freecodecamp.org/certification/JunJun3213/back-end-development-and-apis",
+        issuer_img: "/issuer/fcc.png"
     },
     {
         id: "2",
@@ -38,6 +40,7 @@ const certificates = [
          interpreting visualizations, and applying statistical concepts to support hypothesis testing and experimentation. 
          Capable of managing practical business problems through validated, metrics-based solutions, as demonstrated in certification assessments.`,
         source: "https://www.datacamp.com/certificate/DAA0015475457456",
+        issuer_img: "/issuer/datacamp.png"
     },
     {
         id: "3",
@@ -52,6 +55,7 @@ const certificates = [
          and decision trees (CART). The course also covers essential skills in statistical modeling, predictive analytics, 
          and artificial intelligence. This has given me a tool  to apply machine learning to real-world problems.`,
         source: "https://www.coursera.org/account/accomplishments/verify/7XN4PLKUZM4A",
+        issuer_img: "/issuer/dlai.png"
     },
     {
         id: "4",
@@ -62,6 +66,7 @@ const certificates = [
         tags: ['Data Analysis', 'Analytical Skill', 'Python', 'Statistics'],
         fullDescription: "Understanding the foundation of statistics for data science application",
         source: "https://www.coursera.org/account/accomplishments/verify/9SLR9SJM27RE",
+        issuer_img: "/issuer/st.jpg"
     },
     {
         id: "5",
@@ -80,6 +85,7 @@ const certificates = [
           <li>Constructing a trading strategy using multiple linear regression and evaluating its performance through key investment indicators.</li>
         </ul>`,
         source: "https://www.coursera.org/account/accomplishments/verify/ZV8PURPRJV2S",
+        issuer_img: "/issuer/hkust.avif"
     },
     {
         id: "6",
@@ -90,16 +96,18 @@ const certificates = [
         tags: ['C#', 'Command', 'Microsoft', 'Driver'],
         fullDescription: `Completed a comprehensive introduction to C# programming, covering core concepts such as variables, data types, control structures, and object-oriented principles. Gained hands-on experience by building simple console applications, and developed the foundational skills needed to create functional software using C#.`,
         source: "https://www.freecodecamp.org/certification/JunJun3213/foundational-c-sharp-with-microsoft",
+        issuer_img: "/issuer/fcc.png"
     },
     {
         id: "7",
-        title: "IITP Certification",
+        title: "TOPCIT Level 3 IITP Certification",
         subtitle: "Issued by IITP",
-        description: "",
+        description: "TOPCIT is a performance-evaluation-centered test designed to diagnose and assess the basic competencies of IT specialists and software developers working the IT industry. ",
         image: "https://cdn-payscale.com/content/placeholder-images/certification-placeholder.png",
         tags: ['IT', 'Database', 'Software Development', 'Testing', 'DevOps'],
-        fullDescription: ``,
-        source: "https://drive.google.com/file/d/1SfddlUcx5-rb12Eu68NvNMnfjNi1hxVz/view",
+        fullDescription: `TOPCIT is a performance-evaluation-centered test designed to diagnose and assess the basic competencies of IT specialists and software developers working the IT industry. `,
+        source: "https://drive.google.com/file/d/1BJLDX0rruILtRi96t0rsV9KcAauYCg3N/view?usp=sharing",
+        issuer_img: "/issuer/iitp.jpg"
     },
 ];
 
